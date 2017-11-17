@@ -14,7 +14,7 @@ The tests can be accessed by running the `npm run test` command. (I've only had 
 * Added option for showing the primary market for each of the events
 * Added option for switching between decimal and fractional odds
 * Ability to browse markets / outcomes for each of the events.
-* Ability to lazy load markets / events on specific pages.
+* Ability to lazy load markets / outcomes on specific pages.
 * Using the provided WebSocket for updates.
 * Grouped events via the side bar.
 * Displaying markets with different types using specific layouts.
