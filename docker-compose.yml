@@ -6,10 +6,10 @@ services:
     ports:
       - "8888-8890:8888-8890"
 
-  # web:
-  #   build:
-  #     context: ./web
-  #   image: skybet/web
-  #   container_name: web
-  #   ports:
-  #     - "8585:8585"
+  web:
+    build:
+      context: .
+    image: skybettest/web
+    container_name: web
+    ports:
+      - "8585:8585"

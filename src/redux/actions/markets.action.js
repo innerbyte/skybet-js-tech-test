@@ -32,9 +32,6 @@ export function fetch_market(market_id) {
                         if (json == null)
                             return;
 
-                        if (json.market.type == "correct-score")
-                            console.log(json);
-
                         dispatch(add_market(json.market, true));
 
                         for (let outcome in json.outcomes) {
