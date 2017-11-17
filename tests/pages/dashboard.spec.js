@@ -1,15 +1,15 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import About from '../../src/js/views/About/index';
+import Dashboard from '../../src/views/Dashboard';
 
 configure({ adapter: new Adapter() });
 
-describe('<About /> page', () => {
+describe('<Dashboard /> page', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<About />);
+    component = shallow(<Dashboard />);
   });
 
   it('should exist', () => {
@@ -17,6 +17,6 @@ describe('<About /> page', () => {
   });
 
   it('should have one <h1>', () => {
-    expect(component.find('h1')).toHaveLength(1);
+    expect(component.find('h3')).toHaveLength(1);
   });
 });
