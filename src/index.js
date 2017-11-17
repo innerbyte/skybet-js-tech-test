@@ -12,7 +12,7 @@ import 'simple-line-icons/css/simple-line-icons.css';
 // Import Main styles for this application
 import '../scss/style.scss'
 // Temp fix for reactstrap
-import '../scss/core/_dropdown-menu-right.scss'
+import '../scss/core/_dropdown-menu-right.scss';
 
 // Containers
 import Full from './containers/Full/'

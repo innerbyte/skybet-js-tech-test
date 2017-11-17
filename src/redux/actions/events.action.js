@@ -30,11 +30,38 @@ export function fetch_events() {
                         if (json == null)
                             return;
 
-                        console.log(json);
-
                         for (let event of json.events) {
                             dispatch(add_event(event));
                         }
+
+                        for (let market in json.markets) {
+                            for (let entry of json.markets[market]) {
+                                dispatch(add_market(entry, true));
+                            }
+                        }
+
+                        for (let outcome in json.outcomes) {
+                            for (let entry of json.outcomes[outcome]) {
+                                dispatch(add_outcome(entry));
+                            }
+                        }
+                    });
+    }
+}
+
+export function fetch_event(event_id) {
+    return (dispatch) => {
+        return fetch(`http://${config.api.url}:${config.api.port}/sportsbook/event/${event_id}`)
+                .then((response) => response.json(),
+                    (error) => {
+                        console.log(error);
+                        setTimeout(() => { fetch_events(); }, 1500);
+                    })
+                    .then((json) => {
+                        if (json == null)
+                            return;
+
+                        dispatch(add_event(json.event));
 
                         for (let market in json.markets) {
                             for (let entry of json.markets[market]) {

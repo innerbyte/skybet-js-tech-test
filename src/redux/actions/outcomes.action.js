@@ -15,3 +15,26 @@ export function update_outcome(outcome) {
         outcome: outcome
     };
 }
+
+export function fetch_outcome(outcome_id) {
+    return (dispatch) => {
+        return fetch(`http://${config.api.url}:${config.api.port}/sportsbook/outcome/${outcome_id}`)
+                .then((response) => response.json(),
+                    (error) => {
+                        console.log(error);
+                        setTimeout(() => { fetch_events(); }, 1500);
+                    })
+                    .then((json) => {
+                        if (json == null)
+                            return;
+
+                        console.log(json);
+
+                        for (let outcome in json.outcomes) {
+                            for (let entry of json.outcomes[outcome]) {
+                                dispatch(add_outcome(entry));
+                            }
+                        }
+                    });
+    }
+}
