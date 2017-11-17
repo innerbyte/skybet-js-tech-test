@@ -1,0 +1,15 @@
+version: '3'
+services:
+  api:
+    image: sbgtechtest/api:latest
+    container_name: api
+    ports:
+      - "8888-8890:8888-8890"
+
+  # web:
+  #   build:
+  #     context: ./web
+  #   image: skybet/web
+  #   container_name: web
+  #   ports:
+  #     - "8585:8585"

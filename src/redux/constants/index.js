@@ -1,0 +1,9 @@
+export const UPDATE_SETTINGS = 'UPDATE SETTINGS';
+export const FETCH_SETTINGS = 'FETCH SETTINGS';
+export const FETCH_EVENTS = 'FETCH EVENTS';
+export const ADD_EVENT = 'ADD EVENT';
+export const UPDATE_EVENT = 'UPDATE EVENT';
+export const ADD_MARKET = 'ADD MARKETS';
+export const UPDATE_MARKET = 'UPDATE MARKETS';
+export const ADD_OUTCOMES = 'ADD OUTCOMES';
+export const UPDATE_OUTCOMES = 'UPDATE OUTCOMES';
