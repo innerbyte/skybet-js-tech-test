@@ -1,15 +1,8 @@
 import * as CONST from '../constants';
 import fetch from 'isomorphic-fetch';
 import config from '../../config';
-import { add_market } from './markets.action';
-import { add_outcome } from './outcomes.action';
-
-export function add_event(event) {
-    return {
-        type: CONST.ADD_EVENT,
-        event: event
-    };
-}
+import { update_market } from './markets.action';
+import { update_outcome } from './outcomes.action';
 
 export function update_event(event) {
     return {
@@ -31,18 +24,18 @@ export function fetch_events() {
                             return;
 
                         for (let event of json.events) {
-                            dispatch(add_event(event));
+                            dispatch(update_event(event));
                         }
 
                         for (let market in json.markets) {
                             for (let entry of json.markets[market]) {
-                                dispatch(add_market(entry, true));
+                                dispatch(update_market(entry, true));
                             }
                         }
 
                         for (let outcome in json.outcomes) {
                             for (let entry of json.outcomes[outcome]) {
-                                dispatch(add_outcome(entry));
+                                dispatch(update_outcome(entry));
                             }
                         }
                     });
@@ -61,17 +54,17 @@ export function fetch_event(event_id) {
                         if (json == null)
                             return;
 
-                        dispatch(add_event(json.event));
+                        dispatch(update_event(json.event));
 
                         for (let market in json.markets) {
                             for (let entry of json.markets[market]) {
-                                dispatch(add_market(entry, true));
+                                dispatch(update_market(entry, true));
                             }
                         }
 
                         for (let outcome in json.outcomes) {
                             for (let entry of json.outcomes[outcome]) {
-                                dispatch(add_outcome(entry));
+                                dispatch(update_outcome(entry));
                             }
                         }
                     });

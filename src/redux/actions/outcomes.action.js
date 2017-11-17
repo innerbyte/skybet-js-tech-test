@@ -2,13 +2,6 @@ import * as CONST from '../constants';
 import fetch from 'isomorphic-fetch';
 import config from '../../config';
 
-export function add_outcome(outcome) {
-    return {
-        type: CONST.ADD_OUTCOMES,
-        outcome: outcome
-    };
-}
-
 export function update_outcome(outcome) {
     return {
         type: CONST.UPDATE_OUTCOMES,
@@ -32,7 +25,7 @@ export function fetch_outcome(outcome_id) {
 
                         for (let outcome in json.outcomes) {
                             for (let entry of json.outcomes[outcome]) {
-                                dispatch(add_outcome(entry));
+                                dispatch(update_outcome(entry));
                             }
                         }
                     });

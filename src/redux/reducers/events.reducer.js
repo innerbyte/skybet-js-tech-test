@@ -23,22 +23,6 @@ function slugify(text) {
 
 export default (state = initial_state, action) => {
     switch (action.type) {
-        case CONST.ADD_EVENT:
-            action.event.type_name = action.event.linkedEventTypeName || action.event.typeName;
-            action.event.cat_name = slugify(action.event.type_name);
-
-            if (state.find(v => v.eventId === action.event.eventId))
-                return state.map((v, i, a) => {
-                    if (v.eventId === action.event.eventId)
-                        return Object.assign({}, v, action.event);
-                    else
-                        return v;
-                });
-            else
-                return [
-                    ...state,
-                    action.event
-                ];
         case CONST.UPDATE_EVENT:
             let event = state.find((v, i ,a) => {
                 return v.eventId === action.event.eventId;

@@ -4,19 +4,6 @@ let initial_state = [];
 
 export default (state = initial_state, action) => {
     switch (action.type) {
-        case CONST.ADD_OUTCOMES:
-            if (state.find(v => v.outcomeId === action.outcome.outcomeId))
-                return state.map((v, i, a) => {
-                    if (v.outcomeId === action.outcome.outcomeId)
-                        return Object.assign({}, v, action.outcome);
-                    else
-                        return v;
-                });
-            else
-                return [
-                    ...state,
-                    action.outcome
-                ];
         case CONST.UPDATE_OUTCOMES:
             let outcome = state.find((v, i ,a) => {
                 return v.outcomeId === action.outcome.outcomeId;
